@@ -6,6 +6,7 @@ This chapter covers
 
 - Saving models with Pickle
 - Serving models with Flask
+- NOTE:  all code is in: cd ~/Desktop/ml-bootcamp/lab
 
 
 In this chapter, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it.
