@@ -8,7 +8,7 @@ This chapter covers
 - Serving models with Flask
 
 
-In this chapter, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it. We also see how to deploy the web service to a production-ready environment.
+In this chapter, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it.
 
 
 
@@ -70,18 +70,7 @@ y_pred[0]
 
 
 
-
-
-
-
-
-
-
-
-
-
-This
-function needs a dataframe, so first we create a dataframe with one
+This function needs a dataframe, so first we create a dataframe with one
 row---our customer. Next, we put it into the `predict` function.
 The result is a NumPy array with a single element---the predicted
 probability of churn for this
@@ -145,8 +134,7 @@ a dictionary later inside `predict`.
 
 
 
-To
-avoid doing this unnecessary conversion, we can create a separate
+To avoid doing this unnecessary conversion, we can create a separate
 function for predicting the probability of churn for a single customer
 only. Let's call this function
 [predict\_single]:
@@ -164,17 +152,7 @@ def predict_single(customer, dv, model):    #1
 
 
 
-
-
-
-
-
-
-
-
-
-Using
-it becomes simpler---we simply invoke it with our customer (a
+Using it becomes simpler---we simply invoke it with our customer (a
 dictionary):
 
 
@@ -220,9 +198,6 @@ there in a different process.
 
 ##### Note
 
-
-
-
 "Pickle" can also be used as a verb: *pickling* an object in Python
 means saving it using the Pickle module.
 
@@ -243,14 +218,6 @@ import pickle
 with open('churn-model.bin', 'wb') as f_out:     #1
     pickle.dump(model, f_out)                    #2
 ```
-
-
-
-
-
-
-
-
 
 
 
@@ -401,13 +368,8 @@ this file is called churn\_serving\_simple.py.) It contains
     code for applying the model to a customer]
 
 
-You
-can refer to appendix B to learn more about creating Python scripts.
 
-
-
-First,
-we start with imports. For this script, we need to import Pickle and
+First, we start with imports. For this script, we need to import Pickle and
 NumPy:
 
 
@@ -421,17 +383,7 @@ import numpy as np
 
 
 
-
-
-
-
-
-
-
-
-
-Next,
-let's put the [predict\_single] function there:
+Next, let's put the [predict\_single] function there:
 
 
 
@@ -455,8 +407,7 @@ def predict_single(customer, dv, model):
 
 
 
-Now
-we can load our model:
+Now we can load our model:
 
 
 
@@ -468,18 +419,7 @@ with open('churn-model.bin', 'rb') as f_in:
 
 
 
-
-
-
-
-
-
-
-
-
-
-And
-apply it:
+And apply it:
 
 
 
@@ -523,8 +463,7 @@ prediction = predict_single(customer, dv, model)
 
 
 
-Finally,
-let's display the results:
+Finally, let's display the results:
 
 
 
@@ -540,40 +479,20 @@ else:
 
 
 
-
-
-
-
-
-
-
-
-
-
-After
-saving the file, we can run this script with Python:
+After saving the file, we can run this script with Python:
 
 
 
 
 ```
-python churn_serving.py
+cd ~/Desktop/ml-bootcamp/lab
+
+python churn_serving_simple.py
 ```
 
 
 
-
-
-
-
-
-
-
-
-
-
-We
-should immediately see the results:
+We should immediately see the results:
 
 
 
@@ -584,30 +503,17 @@ verdict: Not churn
 ```
 
 
+![](./images/1.png)
 
 
-
-
-
-
-
-
-
-
-
-This
-way, we can load the model and apply it to the customer we specified in
+This way, we can load the model and apply it to the customer we specified in
 the script.
 
 
 
-Of
-course, we aren't going to manually put the information about customers
+Of course, we aren't going to manually put the information about customers
 in the script. In the next section, we cover a more practical approach:
-putting the model into
-a
-web
-.
+putting the model into a web.
 
 
 
@@ -616,34 +522,23 @@ web
 
 
 
-We
-already
-know how to load a trained model in a different process. Now we need to
+We already know how to load a trained model in a different process. Now we need to
 *serve* this model---make it available for others to use.
 
 
 
-In
-practice, this usually means that a model is deployed as a web service,
+In practice, this usually means that a model is deployed as a web service,
 so other services can communicate with it, ask for predictions, and use
 the results to make their own decisions.
 
 
 
-In
-this section, we see how to do it in Python with Flask---a Python
+In this section, we see how to do it in Python with Flask---a Python
 framework for creating web services. First, we take a look at why we
 need to use a web service for it.
 
 
-
-### 
-
-
-
-We
-already
-know how to use a model to make a prediction, but so far, we have simply
+We already know how to use a model to make a prediction, but so far, we have simply
 hardcoded the features of a customer as a Python dictionary. Let's try
 to imagine how our model will be used in practice.
 
@@ -657,8 +552,7 @@ needs to use our model to decide whether it should send an email.
 
 
 
-One
-possible way of achieving this is to modify the code of the campaign
+One possible way of achieving this is to modify the code of the campaign
 service: load the model, and score the customers right in the service.
 This approach is good, but the campaign service needs to be in Python,
 and we need to have full control over its code.
@@ -702,27 +596,18 @@ service.
 
 
 
-One
-of the most popular frameworks for creating web services in Python is
-Flask, which we cover
-next.
+One of the most popular frameworks for creating web services in Python is
+Flask, which we cover next.
 
 
 
-### 
-
-
-
-The
-easiest
-way to implement a web service in Python is to use Flask. It's quite
+The easiest way to implement a web service in Python is to use Flask. It's quite
 lightweight, requires little code to get started, and hides most of the
 complexity of dealing with HTTP requests and responses.
 
 
 
-Before
-we put our model inside a web service, let's cover the basics of using
+Before we put our model inside a web service, let's cover the basics of using
 Flask. For that, we'll create a simple function and make it available as
 a web service. After covering the basics, we'll take care of the model.
 
@@ -739,15 +624,6 @@ we have a simple Python function called
 def ping():
     return 'PONG'
 ```
-
-
-
-
-
-
-
-
-
 
 
 
@@ -869,20 +745,21 @@ parameters:
 - `port=9696`. The port that we use to access the application.
 
 
-We're
-ready to start our service now. Let's do it:
+We're ready to start our service now. Let's do it:
 
 
 
 
 ```
+cd ~/Desktop/ml-bootcamp/lab
+
 python flask_test.py
 ```
 
+**Note:** Solution is present in `ml-bootcamp/lab` folder on Desktop.
 
 
-
-
+![](./images/2.png)
 
 
 When we run it, we should see the following:
@@ -901,14 +778,6 @@ When we run it, we should see the following:
  * Debugger is active!
  * Debugger PIN: 162-129-136
 ```
-
-
-
-
-
-
-
-
 
 
 
@@ -1056,16 +925,6 @@ app = Flask('churn')
 
 
 
-
-
-
-
-
-
-
-
-
-
 Now we need to create a function that
 
 
@@ -1133,10 +992,13 @@ We're ready to run it:
 
 
 ```
+cd ~/Desktop/ml-bootcamp/lab
+
 python churn_serving.py
 ```
 
 
+![](./images/3.png)
 
 
 After running it, we should see a message saying that the app started and is
@@ -1171,7 +1033,7 @@ of the request.
 
 
 
-We can open the Jupyter Notebook and test the web service from there. Start terminal and run following commands in the terminal:
+We can open the Jupyter Notebook and test the web service from there. Start new terminal and run following commands in the terminal:
 
 
 ```
@@ -1180,7 +1042,7 @@ cd ~/Desktop
 jupyter lab --allow-root
 ```
 
-**Note:** Solution is available in `05-deploy.ipynb` notebook. Open notebook and run the solution to get output.
+**Note:** Solution is available in `ml-bootcamp/lab/05-deploy.ipynb` notebook. Open notebook in `Midroi` browser and run the solution to get output.
 
 
 
@@ -1192,10 +1054,6 @@ First, import requests:
 ```
 import requests
 ```
-
-
-
-
 
 
 
@@ -1214,18 +1072,10 @@ result = response.json()                         #3
 
 
 
+![](./images/4.png)
 
 
-
-
-
-
-
-
-The
-[results]
-variable
-contains the response from the churn service:
+The [results] variable contains the response from the churn service:
 
 
 
@@ -1240,16 +1090,7 @@ contains the response from the churn service:
 
 
 
-
-
-
-
-
-
-This
-is the same information we previously
-saw
-in the terminal, but now we got it as a response from a web service.
+This is the same information we previously saw in the terminal, but now we got it as a response from a web service.
 
 
 
@@ -1298,8 +1139,7 @@ multiple services at the same time.
 
 
 
-In
-this section, we see how to manage dependencies of our application in an
+In this section, we see how to manage dependencies of our application in an
 isolated way that doesn't interfere with other services. We cover two
 tools for this: Pipenv, for managing Python libraries, and Docker, for
 managing the system dependencies such as the operating system and the
