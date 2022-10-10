@@ -1,11 +1,12 @@
-Lab 5: Deploying machine learning models
---------------------------------------
+Lab 5: Deploying machine learning models (churn_serving_simple.py)
+------------------------------------------------------------------
 
 
 This chapter covers
 
 - Saving models with Pickle
 - Serving models with Flask
+- NOTE:  all code is in: cd ~/Desktop/ml-bootcamp/lab
 
 
 In this chapter, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it.
@@ -512,7 +513,7 @@ putting the model into a web.
 
 
 -----------------------------------------------------------------------------------------------------------
-
+## (flask_test.py)
 
 
 We already know how to load a trained model in a different process. Now we need to
@@ -875,7 +876,7 @@ and respond in JSON as well (figure 5.4).
 
 
 ##### To get predictions, we POST the data about a customer in JSON to the /predict route and get the probability of churn in response.
-
+#### (churn_serving.py)
 
 ![](./images/05-04.png)
 
@@ -1035,7 +1036,7 @@ cd ~/Desktop
 jupyter lab --allow-root
 ```
 
-**Note:** Solution is available in `ml-bootcamp/lab/05-deploy.ipynb` notebook. Open notebook in `Midroi` browser and run the solution to get output.
+**Note:** Solution is available in `ml-bootcamp/lab/05-deploy.ipynb` notebook. Open notebook in `Midori` browser and run the solution to get output.
 
 
 
