@@ -1,4 +1,4 @@
-Lab: Deploying machine learning models
+Lab 5: Deploying machine learning models
 --------------------------------------
 
 
@@ -228,11 +228,9 @@ function,
 which takes two arguments:
 
 
--   [The
-    name of the file that we want to open. For us, it's
+- [The name of the file that we want to open. For us, it's
     churn-model.bin.]
--   [The
-    mode with which we open the file. For us, it's [wb], which
+- [The mode with which we open the file. For us, it's [wb], which
     means we want to write to the file ([w]), and the file is
     binary ([b]) and not text---Pickle uses binary format for
     writing to files.]
@@ -247,10 +245,8 @@ can use to write to the file.
 Next, we use the [dump] function from Pickle. It also takes two arguments:
 
 
--   [The
-    object we want to save. For us, it's [model].]
--   [The
-    file descriptor, pointing to the output file, which is
+- [The object we want to save. For us, it's [model].]
+- [The file descriptor, pointing to the output file, which is
     [f\_out] for us.]
 
 
@@ -360,12 +356,9 @@ We will call this file churn\_serving.py. (In the course's GitHub repository,
 this file is called churn\_serving\_simple.py.) It contains
 
 
--   [The
-    [predict\_single] function that we wrote earlier]
--   [The
-    code for loading the model]
--   [The
-    code for applying the model to a customer]
+- [The [predict\_single] function that we wrote earlier]
+- [The code for loading the model]
+- [The code for applying the model to a customer]
 
 
 
