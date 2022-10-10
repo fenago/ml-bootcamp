@@ -6,7 +6,7 @@ This lab covers
 
 - Saving models with Pickle
 - Serving models with Flask
-- NOTE:  all code is in: cd ~/work/ml-bootcamp/lab
+- NOTE:  all code is in: cd ~/work/ml-bootcamp/lab-05-deploy-models
 
 
 In this lab, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it.
@@ -479,7 +479,7 @@ After saving the file, we can run this script with Python:
 
 
 ```
-cd ~/work/ml-bootcamp/lab
+cd ~/work/ml-bootcamp/lab-05-deploy-models
 
 python churn_serving_simple.py
 ```
@@ -745,12 +745,12 @@ We're ready to start our service now. Let's do it:
 
 
 ```
-cd ~/work/ml-bootcamp/lab
+cd ~/work/ml-bootcamp/lab-05-deploy-models
 
 python flask_test.py
 ```
 
-**Note:** Solution is present in `ml-bootcamp/lab` folder on work.
+**Note:** Solution is present in `ml-bootcamp/lab-05-deploy-models` folder on work.
 
 
 ![](./images/2.png)
@@ -798,15 +798,6 @@ that there was a GET request on the [/ping] route:
 ```
 127.0.0.1 - - [02/Apr/2020 21:59:09] "GET /ping HTTP/1.1" 200 -
 ```
-
-
-
-
-
-
-
-
-
 
 
 
@@ -986,7 +977,7 @@ We're ready to run it:
 
 
 ```
-cd ~/work/ml-bootcamp/lab
+cd ~/work/ml-bootcamp/lab-05-deploy-models
 
 python churn_serving.py
 ```
@@ -1024,19 +1015,7 @@ of the request.
 
 
 
-
-
-
-We can open the Jupyter Notebook and test the web service from there. Start new terminal and run following commands in the terminal:
-
-
-```
-cd ~/work
-
-jupyter lab --allow-root
-```
-
-**Note:** Solution is available in `ml-bootcamp/lab/05-deploy.ipynb` notebook. Open notebook in `Midori` browser and run the solution to get output.
+**Note:** Solution is available in `ml-bootcamp/lab-05-deploy-models/05-deploy.ipynb` notebook. Open notebook and run the solution to get output.
 
 
 
