@@ -3,37 +3,15 @@ Lab 2: Machine learning for regression
 
 
 
-This lab covers Creating a car-price prediction project with a linear regression model
-Doing an initial exploratory data analysis with Jupyter notebooks
-Setting up a validation framework
-Implementing the linear regression model from scratch
-Performing simple feature engineering for the model
-Keeping the model under control with regularization
-Using the model to predict car prices
+This lab covers 
 
-
-In lab 1, we talked about supervised machine learning, in which we
-teach machine learning models how to identify patterns in data by giving
-them examples.
-
-
-
-Suppose
-that we have a dataset with descriptions of cars, like make, model, and
-age, and we would like to use machine learning to predict their prices.
-These characteristics of cars are called *features*, and the price is
-the *target* *variable*---something we want to predict. Then the model
-gets the features and combines them to output the price.
-
-
-
-This is an example of supervised learning: we have some information about the
-price of some cars, and we can use it to predict the price of others. In
-lab 1, we also talked about different types of supervised learning:
-regression and classification. When the target variable is numerical, we
-have a regression problem, and when the target variable is categorical,
-we have a classification problem.
-
+- Creating a car-price prediction project with a linear regression model
+- Doing an initial exploratory data analysis with Jupyter notebooks
+- Setting up a validation framework
+- Implementing the linear regression model from scratch
+- Performing simple feature engineering for the model
+- Keeping the model under control with regularization
+- Using the model to predict car prices
 
 
 In this lab, we create a regression model, starting with the simplest
@@ -100,17 +78,6 @@ Theplan for the project is the following:
 ### 2.1.1 Downloading the dataset
 
 
-
-The
-first
-thing we do for this project is install all the required libraries:
-Python, NumPy, Pandas, and Jupyter Notebook. The easiest way to do it is
-to use a Python distribution called Anaconda
-([https://www.anaconda.com](https://www.anaconda.com/)). Please refer to
-appendix A for installation guidelines.
-
-
-
 After
 the libraries are installed, we need to download the dataset. We have
 multiple options for doing this. You can download it manually through
@@ -118,46 +85,15 @@ the Kaggle web interface, available at
 <https://www.kaggle.com/CooperUnion/cardataset>. (You can read more
 about the dataset and the way it was collected at
 <https://www.kaggle.com/jshih7/car-price-prediction>.) Go there, open
-it, and click the download link. The other option is using the Kaggle
-command-line interface (CLI), which is a tool for programmatic access to
-all datasets available via Kaggle. For this lab, we will use the
-second option. We describe how to configure the Kaggle
-CLI
-in appendix A.
+it, and click the download link.
 
-
-
-
-##### Note
-
-
-
-
-Kaggle is an online community for people who are interested in machine
-learning. It is mostly known for hosting machine learning competitions,
-but it is also a data-sharing platform where anyone can share a dataset.
-More than 16,000 datasets are available for anyone to use. It is a great
-source of project ideas and very useful for machine learning
-projects.
-
-
-
-
-In this lab, as well as throughout the course, we will actively use
-NumPy. We cover all necessary NumPy operations as we go along, but
-please refer to appendix C for a more in-depth introduction.
-
-
-
-The
-source code for this project is available in the course's repository in
+The source code for this project is available in the course's repository in
 GitHub at <https://github.com/fenago/ml-bootcamp> in
 lab-02-car-price.
 
 
 
-As
-the first step, we will create a folder for this project. We can give it
+As the first step, we will create a folder for this project. We can give it
 any name, such as lab-02-car-price:
 
 
@@ -170,88 +106,12 @@ cd lab-02-car-price
 
 
 
+We have the dataset `data.csv` available in the following url, let's move on to the next step:
+understanding it.
 
-
-
-
-
-
-
-
-
-
-Then we download the dataset:
-
-
-
-
-``` 
-kaggle datasets download -d CooperUnion/cardataset
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-This
-command downloads the cardataset.zip file, which is a zip archive. Let's
-unpack it:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-``` 
-unzip cardataset.zip
+https://github.com/fenago/ml-bootcamp/blob/master/lab-02-car-price/data.csv
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-Inside,
-there's one file: data.csv.
-
-
-
-When
-we have the dataset, let's move on to the next step:
-understanding
-it.
-
 
 
 2.2 Exploratory data analysis
@@ -310,49 +170,7 @@ charts.
 
 
 
-Let's
-start a Jupyter Notebook by executing the following
-command:
-
-
-
-
-``` 
-jupyter notebook
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-This
-command starts a Jupyter Notebook server in the current directory and
-opens it in the default web browser (figure 2.1).
-
-
-
-##### Figure 2.1 The starting screen of the Jupyter Notebook service
-
-![](./images/02_01.png)
-
-
-
-If
-Jupyter is running on a remote server, it requires additional
-configuration. Please refer to appendix A for details on the setup.
-
-
-
-Now
-let's create a notebook for this project. Click New, then select Python
+Now, let's create a notebook for this project. Click New, then select Python
 3 in the Notebooks section. We can call it
 lab-02-car-price-project---click the current title (Untitled), and
 replace it with the new one.
@@ -554,21 +372,8 @@ underscores.
 
 
 
-We
-can use this attribute only for columns with string values inside. This
+We can use this attribute only for columns with string values inside. This
 is exactly why we first select such columns in ❷.
-
-
-
-
-##### NOTE
-
-
-
-
-In this lab and subsequent labs, we cover relevant Pandas
-operations as we go along, but at a fairly high level. Please refer to
-appendix D for a more consistent and in-depth introduction to Pandas.
 
 
 
@@ -1948,8 +1753,7 @@ example:
 
 
 
-Because
-we now think of both features and weights as vectors *x~i~* and *w*,
+Because we now think of both features and weights as vectors *x~i~* and *w*,
 respectively, we can replace the sum of the elements of these vectors
 with a dot product between them:
 
@@ -1957,12 +1761,6 @@ with a dot product between them:
 
 ![](./images/02_11-Equation_2-16.png)
 
-
-
-The
-dot product is a way of multiplying two vectors: we multiply
-corresponding elements of the vectors and then sum the results. Refer to
-appendix C for more details about vector-vector multiplication.
 
 
 
@@ -2358,14 +2156,8 @@ becomes
 
 
 
-The
-result is an array with predictions for each row of *X*. Refer to
-appendix C for more details about matrix-vector multiplication.
 
-
-
-With
-this matrix formulation, the code for applying linear regression to make
+With this matrix formulation, the code for applying linear regression to make
 predictions becomes very simple. The translation to NumPy becomes
 straightforward:
 
@@ -2449,23 +2241,8 @@ the following formula:
 
 
 
-This piece of math may appear scary or confusing, but it's quite easy to
-translate to NumPy:
 
-
--   [*X^T^*
-    is the transpose of *X*. In NumPy, it's [X.T].]
--   [*X^T^X*
-    is a matrix--matrix multiplication, which we can do with the
-    [dot] method from NumPy: [X.T.dot(X)].]
--   [*X*^--1^
-    is the inverse of *X*. We can use [np.linalg.inv]
-    function
-    to calculate the inverse.]
-
-
-So
-the formula above translates directly to
+So, the formula above translates directly to
 
 
 
@@ -2479,20 +2256,7 @@ inv(X.T.dot(X)).dot(X.T).dot(y)
 
 
 
-
-
-
-
-
-
-
-Please
-refer to appendix C for more details about this equation.
-
-
-
-To
-implement the normal equation, we need to do the following:
+To implement the normal equation, we need to do the following:
 
 
 1.  [Create
@@ -2543,34 +2307,7 @@ def train_linear_regression(X, y):
 
 
 
-
-
-
-
-
-
-
-With
-six lines of code, we have implemented our first machine learning
-algorithm. In ❶, we create a vector containing only ones, which we
-append to the matrix *X* as the first column; this is the dummy feature
-in ❷.
-Next,
-we compute *X^T^X* in ❸ and its inverse in ❹, and we put them together
-to calculate *w* in ❺. Finally, we split the weights into the bias
-*w*~0~ and the
-remaining
-weights *w*
-in
-❻.
-
-
-
-The
-[column\_stack]
-function
-from NumPy that we used for adding a column of ones might be confusing
-at first, so let's have a closer look at it:
+The `column_stack` function from NumPy that we used for adding a column of ones might be confusing at first, so let’s have a closer look at it:
 
 
 
@@ -4072,103 +3809,7 @@ will see why it happens and how to deal with
 
 ### 2.4.6 Regularization
 
-
-
-We
-saw
-that adding new features does not always help, and in our case, it made
-things a lot worse. The reason for this behavior is numerical
-instability. Recall the formula of the normal
-equation:
-
-
-
-![](./images/02_25-Equation_2-33.png)
-
-
-
-One
-of the terms in the equation is the inverse of the *X^T^X* matrix:
-
-
-
-![](./images/02_25-Equation_2-34.png)
-
-
-
-The
-inversion is the issue in our case. Sometimes, when adding new columns
-to *X*, we can accidentally add a column that is a combination of other
-columns. For example, if we already have the MPG in the city feature and
-decide to add kilometers per liter in the city, the second feature is
-the same as the first one but multiplied by a constant.
-
-
-
-When
-this happens, *X^T^X* becomes *undetermined* or *singular*, which means
-that it's not possible to find an inverse for this matrix. If we try to
-invert a singular matrix, NumPy will tell us about that by raising a
-[LinAlgError]:
-
-
-
-
-``` 
-LinAlgError: Singular matrix
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-Our
-code didn't raise any exceptions, however. It happened because we don't
-typically have columns that are perfect linear combinations of other
-columns. The real data is often noisy, with measurement errors (such as
-recording 1.3 instead of 13 for MPG), rounding errors (such as storing
-0.0999999 instead of 0.1), and many other errors. Technically, such
-matrices are not singular, so NumPy doesn't complain.
-
-
-
-For
-this reason, however, some of the values in the weights become extremely
-large---a lot larger than they are supposed to be.
-
-
-
-If
-we look at the values of our *w*~0~ and *w*, we see that this is indeed
-the case. The bias term *w*~0~ has the value 5788519290303866.0, for
-example (the value may vary depending on the machine, OS, and version of
-NumPy), and a few components of *w* have extremely large negative values
-as well.
-
-
-
-In
-numerical linear algebra, such issues are called *numerical instability
-issues*, and they are typically solved with regularization techniques.
-The aim of *regularization* is to make sure that the inverse exists by
-forcing the matrix to be invertible. Regularization is an important
-concept in machine learning: it means "controlling"---controlling the
-weights of the model so that they behave correctly and don't grow too
-large, as in our
-case.
-
-
-
-One
-way to do regularization is to add a small number to each diagonal
+One way to do regularization is to add a small number to each diagonal
 element of the matrix. Then we get the following formula for linear
 regression:
 
@@ -4203,19 +3844,7 @@ is how it looks:
 ![](./images/02_25-Equation_2-36.png)
 
 
-
-This
-formula says that we need *I*---an *identity
-matrix*,
-which is a matrix with ones on the main diagonal and zeros everywhere
-else. We multiply this identity matrix by a number *α*. This way, all
-the ones on the diagonal of *I* become *α*. Then we sum *αI* and
-*X^T^X*, which adds *α* to all the diagonal elements of *X^T^X*.
-
-
-
-This
-formula can directly translate to NumPy code:
+This formula can directly translate to NumPy code:
 
 
 

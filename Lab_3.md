@@ -141,11 +141,7 @@ learning classifiers.
 
 ### 3.1.1 Telco churn dataset
 
-
-
-As
-in
-the previous lab, we will use Kaggle datasets for data. This time we
+As in the previous lab, we will use Kaggle datasets for data. This time we
 will use data from
 <https://www.kaggle.com/blastchar/telco-customer-churn>.
 
@@ -171,94 +167,27 @@ According to the description, this dataset has the following information:
     month]
 
 
-First,
-we download the dataset. To keep things organized, we first create a
-folder, lab-03-churn-prediction. Then we go to that directory and
-use Kaggle CLI for downloading the data:
+To keep things organized, we first create a
+folder, lab-03-churn-prediction. Dataset which we will be using in this lab is available here:
+
+`https://github.com/fenago/ml-bootcamp/tree/master/lab-03-churn-prediction`
 
 
 
 
-``` 
-kaggle datasets download -d blastchar/telco-customer-churn
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-After
-downloading it, we unzip the archive to get the CSV file from there:
-
-
-
-
-``` 
-unzip telco-customer-churn.zip
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-We
-are ready to start
-now.
+We are ready to start now.
 
 
 
 ### 3.1.2 Initial data preparation
 
 
-
-The
-first
-step is creating a new notebook in Jupyter. If it's not running, start
-it:
-
-
-
-
-``` 
-jupyter notebook
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-We
-name the notebook lab-03-churn-project (or any other name that we
+We name the notebook lab-03-churn-project (or any other name that we
 like).
 
 
 
-As
-previously, we begin with adding the usual imports:
+As previously, we begin with adding the usual imports:
 
 
 
@@ -2956,16 +2885,8 @@ and the full formula for the logistic regression model is
 
 
 
-If
-we compare it with the linear regression formula, the only difference is
-this sigmoid function: in case of linear regression, we have only *w*~0~
-*+ x~i~^T^w*. This is why both of these models are linear; they are both
-based on the dot product operation.
 
-
-
-The
-sigmoid function maps any value to a number between zero and one (figure
+The sigmoid function maps any value to a number between zero and one (figure
 3.24). It's defined this way:
 
 
@@ -2992,8 +2913,7 @@ as
 
 
 
-Or,
-using sum notation, as
+Or, using sum notation, as
 
 
 
@@ -3007,8 +2927,7 @@ here.
 
 
 
-The
-linear regression model has the following formula:
+The linear regression model has the following formula:
 
 
 
@@ -3016,8 +2935,7 @@ linear regression model has the following formula:
 
 
 
-If
-you remember from the previous lab, this formula translates to the
+If you remember from the previous lab, this formula translates to the
 following Python code:
 
 
@@ -3034,17 +2952,7 @@ def linear_regression(xi):
 
 
 
-
-
-
-
-
-
-
-
-
-The
-translation of the logistic regression formula to Python is almost
+The translation of the logistic regression formula to Python is almost
 identical to the linear regression case, except that at the end, we
 apply the sigmoid function:
 
@@ -3064,16 +2972,7 @@ def logistic_regression(xi):
 
 
 
-
-
-
-
-
-
-
-
-Of
-course, we also need to define the sigmoid function:
+Of course, we also need to define the sigmoid function:
 
 
 
@@ -3111,13 +3010,7 @@ one.
 
 The
 parameters of the logistic regression model are the same as for linear
-regression:
-
-
--   [*w*~0~
-    is the bias term.]
--   [*w
-    =* (*w*~1~, *w*~2~, \..., *w~n~*) is the weights vector.]
+regression.
 
 
 To
@@ -3206,29 +3099,7 @@ model.fit(X_train, y_train)
 
 
 
-The
-class
-[LogisticRegression]
-from Scikit-learn encapsulates the training logic behind this model.
-It's configurable, and we can change quite a few parameters. In fact, we
-already specify two of them:
-[solver]
-and [random\_state]. Both are needed for reproducibility:
-
-
--   [
-    The seed number for the random-number generator. It shuffles the
-    data when training the model; to make sure the shuffle is the same
-    every time, we fix the seed.]
--   [.
-    The underlying optimization library. In the current version (at the
-    moment of writing, v0.20.3), the default value for this parameter is
-    [liblinear], but according to the documentation
-    ([https://scikit-learn.org/stable/modules/
-    generated/sklearn.linear\_model.LogisticRegression.html](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)),
-    it will change to a different one in version v0.22. To make sure our
-    results are reproducible in the later versions, we also set this
-    parameter
+The class LogisticRegression from Scikit-learn encapsulates the training logic behind this model. It’s configurable, and we can change quite a few parameters. In fact, we already specify two of them: `solver` and `random_state`. Both are needed for reproducibility.
 
 
 Other
@@ -3345,15 +3216,10 @@ columns.
 
 
 
-When
-we use [\[:,] [1\]], NumPy interprets it this way:
+When we use `[:, 1]`, NumPy interprets it this way:
 
-
--   [
-    means select all the rows.]
--   [
-    means select only the column at index 1, and because the indexing
-    starts at 0, it's the second column.]
+- `:` means select all the rows.
+- `1` means select only the column at index 1, and because the indexing starts at 0, it’s the second column.
 
 
 As
@@ -3447,8 +3313,6 @@ element in the output array is [True], and otherwise, it's
 
 
 
-#####  values, depending on the result of the comparison.
-
 ![](https://drek4537l1klr.cloudfront.net/grigorev/Figures/03_26.png)
 
 
@@ -3539,8 +3403,6 @@ we predict the customer will churn, and [False] means the customer
 will not churn (figure 3.27).
 
 
-
-#####  operator to compare the target data with our predictions
 
 ![](https://drek4537l1klr.cloudfront.net/grigorev/Figures/03_27.png)
 
@@ -3635,36 +3497,9 @@ learned.
 
 ### 3.3.3 Model interpretation
 
+We know that the logistic regression model has two parameters that it learns from data:
 
-
-We
-know
-that the logistic regression model has two parameters that it learns
-from data:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--   [*w*~0~
-    is the bias term.]
--   [*w
-    = (w*~1~, *w*~2~, \..., *w~n~)* is the weights vector.]
+![](./images/5.png)
 
 
 We
@@ -3957,72 +3792,9 @@ line of code shows the weight for each feature:
 
 
 
+![](./images/6.png)
 
-
-
-
-
-
-
-
-
-
-Let's
-put all these weights together in one table and call them *w*~1~,
-*w*~2~, *w*~3~, *w*~4~, and *w*~5~ (table
-3.2).
-
-
-
-##### Table 3.2 The weights of a logistic regression model [(view table figure)](https://drek4537l1klr.cloudfront.net/grigorev/HighResolutionFigures/table_3-2.png)
-
-Bias
-
-
-
-
-
-
-
-
-
-
-
-
-
-month
-
-year
-
-2-year
-
-*w*~0~
-
-*w*~1~
-
-*w*~2~
-
-*w*~3~
-
-*w*~4~
-
-*w*~5~
-
----0.639
-
-0.91
-
----0.144
-
----1.404
-
----0.097
-
-0.0
-
-
-Now
-let's take a look at these weights and try to understand what they mean
+Now let's take a look at these weights and try to understand what they mean
 and how we can interpret them.
 
 

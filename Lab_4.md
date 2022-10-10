@@ -238,13 +238,10 @@ this code, we first create an array with thresholds. We use the
 function
 from NumPy for that: it takes two numbers (0 and 1, in our case) and the
 number of elements the array should have (11). As a result, we get an
-array with the numbers 0.0, 0.1, 0.2, \..., 1.0. You can learn more
-about [linspace] and other NumPy functions in appendix C.
+array with the numbers 0.0, 0.1, 0.2, \..., 1.0. 
 
 
-
-We
-use these numbers as thresholds: we loop over them, and for each one, we
+We use these numbers as thresholds: we loop over them, and for each one, we
 calculate the accuracy. Finally, we print the thresholds and the
 accuracy scores so we can decide which threshold is the best.
 
@@ -469,15 +466,11 @@ determine how many elements are in the validation set.
 
 
 
-Next,
-we create an array of dummy predictions---all the elements of this array
+Next, we create an array of dummy predictions---all the elements of this array
 are False values. We do this using the [repeat]
 function
 from NumPy: it takes in an element and repeats it as many times as we
-ask. For more details about the [repeat] function and other NumPy
-functions, please refer to appendix
-C.
-
+ask.
 
 
 Now
@@ -1177,49 +1170,14 @@ we couldn't see with the accuracy score alone.
 
 
 
-We
-can repeat the same process for the small model using exactly the same
+We can repeat the same process for the small model using exactly the same
 code (table 4.2).
 
 
-
-##### Table 4.2 The confusion table for the small model [(view table figure)](https://drek4537l1klr.cloudfront.net/grigorev/HighResolutionFigures/table_4-2.png)
-
-Small
-model with three features
+![](./images/7.png)
 
 
-
-
-Predicted
-
- 
-
-False
-
-True
-
-Actual
-
-False
-
-1189
-(63%)
-
-185
-(10%)
-
-True
-
-248
-(12%)
-
-238
-(13%)
-
-
-When
-we compare the smaller model with the full model, we see that it's 2%
+When we compare the smaller model with the full model, we see that it's 2%
 worse at correctly identifying non-churning users (63% versus 65% for
 true negatives) and 2% worse at correctly identifying churning users
 (13% versus 15% for true positives), which together accounts for the 4%
@@ -2288,42 +2246,8 @@ df_ideal = tpr_fpr_dataframe(y_ideal, y_pred_ideal)   #4
 ```
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-As
-a result, we get a dataframe with the TPR and FPR values of the ideal
-model (figure 4.26). You can read more about [np.linspace] and
-[np.repeat]
-functions
-in appendix C.
-
+As a result, we get a dataframe with the TPR and FPR values of the ideal
+model (figure 4.26).
 
 
 ##### Figure 4.26 The TPR and FPR values for the ideal model

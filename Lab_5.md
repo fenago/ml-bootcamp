@@ -6,7 +6,7 @@ This lab covers
 
 - Saving models with Pickle
 - Serving models with Flask
-- NOTE:  all code is in: cd ~/Desktop/ml-bootcamp/lab
+- NOTE:  all code is in: cd ~/work/ml-bootcamp/lab
 
 
 In this lab, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it.
@@ -479,7 +479,7 @@ After saving the file, we can run this script with Python:
 
 
 ```
-cd ~/Desktop/ml-bootcamp/lab
+cd ~/work/ml-bootcamp/lab
 
 python churn_serving_simple.py
 ```
@@ -745,12 +745,12 @@ We're ready to start our service now. Let's do it:
 
 
 ```
-cd ~/Desktop/ml-bootcamp/lab
+cd ~/work/ml-bootcamp/lab
 
 python flask_test.py
 ```
 
-**Note:** Solution is present in `ml-bootcamp/lab` folder on Desktop.
+**Note:** Solution is present in `ml-bootcamp/lab` folder on work.
 
 
 ![](./images/2.png)
@@ -986,7 +986,7 @@ We're ready to run it:
 
 
 ```
-cd ~/Desktop/ml-bootcamp/lab
+cd ~/work/ml-bootcamp/lab
 
 python churn_serving.py
 ```
@@ -1031,7 +1031,7 @@ We can open the Jupyter Notebook and test the web service from there. Start new 
 
 
 ```
-cd ~/Desktop
+cd ~/work
 
 jupyter lab --allow-root
 ```

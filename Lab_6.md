@@ -136,8 +136,7 @@ the item), and its status (paid back or not).
 
 We
 use a copy of this dataset available on GitHub at
-[https://github.com/gastonstat/
-CreditScoring/](https://github.com/gastonstat/CreditScoring/). Let's
+[https://github.com/fenago/ml-bootcamp/blob/master/lab-06-trees/CreditScoring.csv](https://github.com/fenago/ml-bootcamp/blob/master/lab-06-trees/CreditScoring.csv). Let's
 download it.
 
 
@@ -150,7 +149,7 @@ use [wget] to get it:
 
 
 ``` 
-wget https://github.com/gastonstat/CreditScoring/raw/master/CreditScoring.csv
+wget https://github.com/fenago/ml-bootcamp/raw/master/lab-06-trees/CreditScoring.csv
 ```
 
 
@@ -171,30 +170,7 @@ folder.
 
 
 
-Next,
-start a Jupyter Notebook server if it's not started yet:
-
-
-
-
-``` 
-jupyter notebook
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-Go
-to the project folder, and create a new notebook (e.g.,
+Go to the project folder, and create a new notebook (e.g.,
 lab-06-credit-risk).
 
 
@@ -351,21 +327,8 @@ columns:
     price of an item the client wants to buy]
 
 
-Although
-most of the columns are numerical, some are categorical: status, home,
-marital \[status\], records, and job. The values we see in the
-DataFrame, however, are numbers, not strings. This means that we need to
-translate them to their actual names. In the GitHub repository with the
-dataset is a script that decodes the numbers to categories
-([https://github.com/gastonstat/CreditScoring/blob/master/Part1\_CredScoring\_
-Processing.R](https://github.com/gastonstat/CreditScoring/blob/master/Part1_CredScoring_Processing.R)).
-Originally, this script was written in R, so we need to translate it to
-Pandas.
 
-
-
-We
-start with the status column. The value "1" means "OK," the value "2"
+We start with the status column. The value "1" means "OK," the value "2"
 means "default," and "0" means that the value is missing---let's replace
 it with "unk" (short for "unknown").
 
