@@ -2,14 +2,14 @@ Lab 5: Deploying machine learning models (churn_serving_simple.py)
 ------------------------------------------------------------------
 
 
-This chapter covers
+This lab covers
 
 - Saving models with Pickle
 - Serving models with Flask
 - NOTE:  all code is in: cd ~/Desktop/ml-bootcamp/lab
 
 
-In this chapter, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it.
+In this lab, we cover model deployment : the process of putting models to use. In particular, we see how to package a model inside a web service, so other services can use it.
 
 
 
@@ -171,7 +171,7 @@ The result is the same: this customer has a 6% probability of churning.
 
 
 
-We trained our model inside the Jupyter Notebook we started in chapter 3.
+We trained our model inside the Jupyter Notebook we started in lab 3.
 This model lives there, and once we stop the Jupyter Notebook, the
 trained model will disappear. This means that now we can use it only
 inside the notebook and nowhere else. Next, we see how to address

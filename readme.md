@@ -8,7 +8,6 @@
 Labs for this course are available at path shared below. Elev8ed Notebooks (powered by Jupyter) will be accessible at the port given to you by your instructor.
 
 1. ##### Introduction to machine learning (No Lab)
-		* http://<host-ip>/lab/workspaces/lab1_automl
 2. ##### Machine learning for regression
 		* http://<host-ip>/lab/workspaces/lab2_regression
 3. ##### Machine learning for classification

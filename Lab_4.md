@@ -3,7 +3,7 @@ Lab 4: Evaluation metrics for classification
 
 
 
-### This chapter covers
+### This lab covers
 
 -   [Accuracy as a way of evaluating binary classification
     models and its limitations]
@@ -21,8 +21,8 @@ Lab 4: Evaluation metrics for classification
 
 
 
-In this chapter, we continue with the project we started in the previous
-chapter: churn prediction. We have already downloaded the dataset,
+In this lab, we continue with the project we started in the previous
+lab: churn prediction. We have already downloaded the dataset,
 performed the initial preprocessing and exploratory data analysis, and
 trained the model that predicts whether customers will churn. We have
 also evaluated this model on the validation dataset and concluded that
@@ -33,18 +33,18 @@ it has 80% accuracy.
 The
 question we postponed until now was whether 80% accuracy is good and
 what it actually means in terms of the quality of our model. We answer
-this question in this chapter and discuss other ways of evaluating a
+this question in this lab and discuss other ways of evaluating a
 binary classification model: the confusion table, precision and recall,
 the ROC curve, and AUC.
 
 
 
 This
-chapter provides a lot of complex information, but the evaluation
+lab provides a lot of complex information, but the evaluation
 metrics we cover here are essential for doing practical machine
 learning. Don't worry if you don't immediately understand all the
 details of the different evaluation metrics: it requires time and
-practice. Feel free to come back to this chapter to revisit the finer
+practice. Feel free to come back to this lab to revisit the finer
 points.
 
 
@@ -72,7 +72,7 @@ value.
 
 
 There
-are different kinds of metrics. In chapter 2, we used RMSE (root mean
+are different kinds of metrics. In lab 2, we used RMSE (root mean
 squared error) to evaluate regression models. However, this metric can
 be used only for regression models and doesn't work for classification.
 
@@ -81,7 +81,7 @@ be used only for regression models and doesn't work for classification.
 For
 evaluating classification models, we have other more suitable metrics.
 In this section, we cover the most common evaluation metrics for binary
-classification, starting with accuracy, which we already saw in chapter
+classification, starting with accuracy, which we already saw in lab
 3.
 
 
@@ -181,7 +181,7 @@ can find these metrics in the metrics package.
 
 
 We'll
-continue working on the same notebook that we started in chapter 3.
+continue working on the same notebook that we started in lab 3.
 Let's open it and add the [import]
 statement
 to import accuracy from Scikit-learn's metrics package:
@@ -378,7 +378,7 @@ can achieve is 80%.
 
 
 In
-the previous chapter, we trained a simpler model: we called it
+the previous lab, we trained a simpler model: we called it
 model\_small. It was based on only three variables: [contract],
 [tenure], and [totalcharges].
 
@@ -1005,7 +1005,7 @@ Then
 we use the [sum] method from NumPy, which simply counts how many
 [True] values are in the array. It does that by first casting the
 Boolean array to integers and then summing it (figure 4.14). We already
-saw similar behavior in the previous chapter when we used the
+saw similar behavior in the previous lab when we used the
 [mean]
 method.
 
@@ -1276,9 +1276,7 @@ c)
 A customer for whom we predicted "churn," and they churned
 
 
-<div>
 
-</div>
 
 
 
@@ -1519,9 +1517,7 @@ The percent of customers who actually churned among the customers who we
 predicted as churning
 
 
-<div>
 
-</div>
 
 ------------------------------------------------------------------------
 
@@ -1550,9 +1546,7 @@ as
 churning
 
 
-<div>
 
-</div>
 
 
 
@@ -1741,7 +1735,7 @@ output by setting some threshold to get only True and False values.
 Instead
 of evaluating the model at one particular threshold, we can do it for a
 range of them---in the same way we did it for accuracy earlier in this
-chapter.
+lab.
 
 
 
@@ -2449,9 +2443,7 @@ b)
 It scores non-churning customers higher than churning ones.
 
 
-<div>
 
-</div>
 
 
 
@@ -3136,7 +3128,7 @@ this.
 
 In
 the
-previous chapter, we used a simple hold-out validation scheme for
+previous lab, we used a simple hold-out validation scheme for
 testing our models. In this scheme, we take part of the data out and
 keep it for validation purposes only. This practice is good but doesn't
 always give us the whole picture. It tells us how well the model will
@@ -3695,7 +3687,7 @@ score.
 
 Now
 we can use this model for scoring real customers and think about our
-marketing campaign for preventing churn. In the next chapter, we will
+marketing campaign for preventing churn. In the next lab, we will
 see how to deploy this model in a
 production
 
@@ -3739,7 +3731,7 @@ evaluation and model selection:
 
 
 -   [In
-    this chapter, we plotted TPR and FPR for different threshold values,
+    this lab, we plotted TPR and FPR for different threshold values,
     and it helped us understand what these metrics mean and also how the
     performance of our model changes when we choose a different
     threshold. It's helpful to do a similar exercise for precision and
@@ -3800,12 +3792,12 @@ evaluation and model selection:
 
 You
 can also continue with the other self-study projects from the previous
-chapter: the lead scoring project and the default prediction project.
+lab: the lead scoring project and the default prediction project.
 Try the following:
 
 
 -   [Calculate
-    all the metrics that we covered in this chapter: the confusion
+    all the metrics that we covered in this lab: the confusion
     table, precision and recall, and AUC. Also try to calculate the
     scores from the exercises: the F1 score as well as AU PR (the area
     under the precision-recall curve).]
@@ -3871,7 +3863,7 @@ Summary
 
 
 In
-the next chapter we look into deploying our model into a production
+the next lab we look into deploying our model into a production
 environment.
 
 

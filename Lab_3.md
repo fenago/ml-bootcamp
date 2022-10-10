@@ -2,7 +2,7 @@ Lab 3: Machine learning for classification
 ==========================================
 
 
-### This chapter covers
+### This lab covers
 
 - Performing exploratory data analysis for identifying important features
 - Encoding categorical variables to use them in machine learning models
@@ -10,7 +10,7 @@ Lab 3: Machine learning for classification
 
 
 
-In this chapter, we are going to use machine learning to predict churn.
+In this lab, we are going to use machine learning to predict churn.
 
 
 
@@ -33,10 +33,10 @@ churn.
 
 
 In
-chapter 1, we learned that many supervised machine learning models
+lab 1, we learned that many supervised machine learning models
 exist, and we specifically mentioned ones that can be used for binary
 classification, including logistic regression, decision trees, and
-neural networks. In this chapter, we start with the simplest one:
+neural networks. In this lab, we start with the simplest one:
 logistic regression. Even though it's indeed the simplest, it's still
 powerful and has many advantages over other models: it's fast and easy
 to understand, and its results are easy to interpret. It's a workhorse
@@ -51,7 +51,7 @@ of machine learning and the most widely used model in the industry.
 
 The
 project
-we prepared for this chapter is churn prediction for a telecom company.
+we prepared for this lab is churn prediction for a telecom company.
 We will use logistic regression and Scikit-learn for that.
 
 
@@ -103,7 +103,7 @@ plan for the project follows:
 
 
 In
-the previous chapter, we implemented everything ourselves, using Python
+the previous lab, we implemented everything ourselves, using Python
 and NumPy. In this project, however, we will start using Scikit-learn, a
 Python library for machine learning. Namely, we will use it for
 
@@ -145,7 +145,7 @@ learning classifiers.
 
 As
 in
-the previous chapter, we will use Kaggle datasets for data. This time we
+the previous lab, we will use Kaggle datasets for data. This time we
 will use data from
 <https://www.kaggle.com/blastchar/telco-customer-churn>.
 
@@ -173,7 +173,7 @@ According to the description, this dataset has the following information:
 
 First,
 we download the dataset. To keep things organized, we first create a
-folder, chapter-03-churn-prediction. Then we go to that directory and
+folder, lab-03-churn-prediction. Then we go to that directory and
 use Kaggle CLI for downloading the data:
 
 
@@ -252,7 +252,7 @@ jupyter notebook
 
 
 We
-name the notebook chapter-03-churn-project (or any other name that we
+name the notebook lab-03-churn-project (or any other name that we
 like).
 
 
@@ -620,7 +620,7 @@ see that indeed there are spaces in the TotalCharges column (figure
 Now
 it's up to us to decide what to do with these missing values. Although
 we could do many things with them, we are going to do the same thing we
-did in the previous chapter---set the missing values to zero:
+did in the previous lab---set the missing values to zero:
 
 
 
@@ -670,7 +670,7 @@ with a capital letter, and there are also spaces in the values.
 Let's
 make it uniform by lowercasing everything and replacing spaces with
 underscores. This way we remove all the inconsistencies in the data. We
-use the exact same code we used in the previous chapter:
+use the exact same code we used in the previous lab:
 
 
 
@@ -750,7 +750,7 @@ converts "yes" to [True] and "no" to [False] (figure 3.5B).
 When we perform casting by using the [astype(int)]
 function,
 we convert [True] to 1 and [False] to 0 (figure. 3.5C). This
-is exactly the same idea that we used in the previous chapter when we
+is exactly the same idea that we used in the previous lab when we
 implemented category encoding.
 
 
@@ -777,10 +777,10 @@ implemented category encoding.
 
 We've
 done a bit of preprocessing already, so let's put aside some data for
-testing. In the previous chapter, we implemented the code for doing it
+testing. In the previous lab, we implemented the code for doing it
 ourselves. This is great for understanding how it works, but typically
 we don't write such things from scratch every time we need them.
-Instead, we use existing implementations from libraries. In this chapter
+Instead, we use existing implementations from libraries. In this lab
 we use Scikit-learn, and it has a module called
 [model\_selection]
 that can handle data splitting. Let's use it.
@@ -840,7 +840,7 @@ and creates two new dataframes: [df\_train\_full] and
 It does this by shuffling the original dataset and then splitting it in
 such a way that the test set contains 20% of the data and the train set
 contains the remaining 80% (figure 3.6). Internally, it's implemented
-similarly to what we did ourselves in the previous chapter.
+similarly to what we did ourselves in the previous lab.
 
 
 
@@ -892,7 +892,7 @@ for example, we notice that the indices appear to be randomly ordered
 
 
 In
-the previous chapter, we split the data into three parts: train,
+the previous lab, we split the data into three parts: train,
 validation, and test. However, the [train\_test\_split] function
 splits the data into only two parts: train and test. In spite of that,
 we can still split the original dataset into three parts; we just take
@@ -1231,9 +1231,7 @@ c)
 The length of an array
 
 
-<div>
 
-</div>
 
 
 Both
@@ -1875,7 +1873,7 @@ to render a dataframe inside the loop. The way we typically display a
 dataframe is to leave it as the last line in a Jupyter Notebook cell and
 then execute the cell. If we do it that way, the dataframe is displayed
 as the cell output. This is exactly how we managed to see the content of
-the dataframe at the beginning of the chapter (figure 3.1). However, we
+the dataframe at the beginning of the lab (figure 3.1). However, we
 cannot do this inside a loop. To still be able to see the content of the
 dataframe, we call the [display] function
 explicitly.
@@ -2328,7 +2326,7 @@ ready to train the logistic regression model.
 
 As
 we
-already know from the first chapter, we cannot just take a categorical
+already know from the first lab, we cannot just take a categorical
 variable and put it into a machine learning model. The models can deal
 only with numbers in matrices. So, we need to convert our categorical
 data into a matrix form, or encode.
@@ -2337,9 +2335,9 @@ data into a matrix form, or encode.
 
 One
 such encoding technique is *one-hot encoding*. We already saw this
-encoding technique in the previous chapter, when creating features for
+encoding technique in the previous lab, when creating features for
 the make of a car and other categorical variables. There, we mentioned
-it only briefly and used it in a very simple way. In this chapter, we
+it only briefly and used it in a very simple way. In this lab, we
 will spend more time understanding and using it.
 
 
@@ -2554,7 +2552,7 @@ can take in a set of parameters. We specify one of them:
 [sparse=False].
 This parameter means that the created matrix will not be sparse and
 instead will create a simple NumPy array. If you don't know about sparse
-matrices, don't worry: we don't need them in this chapter.
+matrices, don't worry: we don't need them in this lab.
 
 
 
@@ -2825,9 +2823,7 @@ b)
 `0,` `1]`
 
 
-<div>
 
-</div>
 
 
 
@@ -2859,7 +2855,7 @@ interpret its results.
 
 In
 this
-chapter, we use logistic regression as a classification model, and now
+lab, we use logistic regression as a classification model, and now
 we train it to distinguish churned and not-churned users.
 
 
@@ -2884,7 +2880,7 @@ we train it to distinguish churned and not-churned users.
 
 Logistic
 regression has a lot in common with linear regression, the model we
-learned in the previous chapter. If you remember, the linear regression
+learned in the previous lab. If you remember, the linear regression
 model is a regression model that can predict a number. It has the form
 
 
@@ -2909,7 +2905,7 @@ We
 apply this model and get *g*(*x~i~*)---the prediction of what we think
 the value for *x~i~* should be. Linear regression is trained to predict
 the target variable *y~i~*---the actual value of the observation *i*. In
-the previous chapter, this was the price of a car.
+the previous lab, this was the price of a car.
 
 
 
@@ -2985,7 +2981,7 @@ sigmoid function maps any value to a number between zero and one (figure
 
 
 We
-know from chapter 2 that if the feature vector *x~i~* is
+know from lab 2 that if the feature vector *x~i~* is
 *n*-dimensional, the dot product *x~i~^T^w* can be unwrapped as a sum,
 and we can write *g*(*x~i~*)
 as
@@ -3021,7 +3017,7 @@ linear regression model has the following formula:
 
 
 If
-you remember from the previous chapter, this formula translates to the
+you remember from the previous lab, this formula translates to the
 following Python code:
 
 
@@ -3153,9 +3149,7 @@ Sigmoid makes sure the output is between zero and one, which can be
 interpreted as probability.
 
 
-<div>
 
-</div>
 
 
 
@@ -3239,7 +3233,7 @@ and [random\_state]. Both are needed for reproducibility:
 
 Other
 useful parameters for the model include [C], which controls the
-regularization level. We talk about it in the next chapter when we cover
+regularization level. We talk about it in the next lab when we cover
 parameter tuning. Specifying [C] is optional; by default, it gets
 the value
 1.0.
@@ -3485,7 +3479,7 @@ churn = y_pred >= 0.5
 When
 we have these hard predictions made by our model, we would like to
 understand how good they are, so we are ready to move to the next step:
-evaluating the quality of these predictions. In the next chapter, we
+evaluating the quality of these predictions. In the next lab, we
 will spend a lot more time learning about different evaluation
 techniques for binary classification, but for now, let's do a simple
 check to make sure our model learned something
@@ -4357,7 +4351,7 @@ what our model learned and understand how it makes the predictions.
 Additionally,
 we applied the model to the validation set, computed the probabilities
 of churning for every customer there, and concluded that the model is
-80% accurate. In the next chapter we will evaluate whether this number
+80% accurate. In the next lab we will evaluate whether this number
 is satisfactory, but for now, let's try to use the model we trained. Now
 we can apply the model to customers for scoring them. It's quite
 easy.
@@ -4673,7 +4667,7 @@ train it with Scikit-learn, and how to apply it to new data. We haven't
 covered the evaluation of the results yet; this is what we will do in
 the
 next
-chapter.
+lab.
 
 
 
@@ -4695,10 +4689,10 @@ can try a couple of things to learn the topic better:
 
 
 -   [In
-    the previous chapter, we implemented many things ourselves,
-    including linear regression and dataset splitting. In this chapter
+    the previous lab, we implemented many things ourselves,
+    including linear regression and dataset splitting. In this lab
     we learned how to use Scikit-learn for that. Try to redo the project
-    from the previous chapter using Scikit-learn. To use linear
+    from the previous lab using Scikit-learn. To use linear
     regression, you need
     [LinearRegression]
     from the [sklearn.linear\_model]
@@ -4722,7 +4716,7 @@ can try a couple of things to learn the topic better:
 
 We
 can use classification in numerous ways to solve real-life problems, and
-now, after learning the materials of this chapter, you should have
+now, after learning the materials of this lab, you should have
 enough knowledge to apply logistic regression to solve similar problems.
 In particular, we suggest these:
 
@@ -4808,7 +4802,7 @@ Summary
 
 
 In
-the next chapter we will continue with this project on churn prediction.
+the next lab we will continue with this project on churn prediction.
 We will look at ways of evaluating binary classifiers and then use this
 information for tuning the model's performance.
 

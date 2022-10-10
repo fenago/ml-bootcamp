@@ -3,7 +3,7 @@ Lab 6: Decision trees and ensemble learning
 
 
 
-### This chapter covers
+### This lab covers
 
 -   [Decision trees and the decision tree learning
     algorithm]
@@ -14,13 +14,13 @@ Lab 6: Decision trees and ensemble learning
 
 
 
-In chapter 3, we described the binary classification problem and used the
+In lab 3, we described the binary classification problem and used the
 logistic regression model to predict if a customer is going to
 churn
 
 
 
-In this chapter, we also solve a binary classification problem, but we use
+In this lab, we also solve a binary classification problem, but we use
 a different family of machine learning models: tree-based models.
 Decision trees, the simplest tree-based model, are nothing but a
 sequence of if-then-else rules put together. We can combine multiple
@@ -31,7 +31,7 @@ boosting.
 
 
 The
-project we prepared for this chapter is default prediction: we predict
+project we prepared for this lab is default prediction: we predict
 whether or not a customer will fail to pay back a loan. We learn how to
 train decision trees and random forest models with Scikit-learn and
 explore XGBoost---a library for implementing gradient boosting models.
@@ -73,7 +73,7 @@ assess the risk of future borrowers not repaying the money.
 
 
 This
-is what we do in this chapter: use machine learning to calculate the
+is what we do in this lab: use machine learning to calculate the
 risk of default. The plan for the project is the
 following:
 
@@ -103,15 +103,15 @@ risk scoring is a binary classification problem: the target is positive
 ("1") if the customer defaults and negative ("0") otherwise. For
 evaluating our solution, we'll use AUC (area under the ROC
 curve),
-which we covered in chapter 4. AUC describes how well our model can
+which we covered in lab 4. AUC describes how well our model can
 separate the cases into positive and negative ones.
 
 
 
 The
-code for this project is available in the book's GitHub repository at
-<https://github.com/alexeygrigorev/mlbookcamp-code> (in the
-chapter-06-trees folder).
+code for this project is available in the course's GitHub repository at
+<https://github.com/fenago/ml-bootcamp> (in the
+lab-06-trees folder).
 
 
 
@@ -143,7 +143,7 @@ download it.
 
 
 First,
-create a folder for our project (e.g., chapter-06-credit-risk), and then
+create a folder for our project (e.g., lab-06-credit-risk), and then
 use [wget] to get it:
 
 
@@ -195,7 +195,7 @@ jupyter notebook
 
 Go
 to the project folder, and create a new notebook (e.g.,
-chapter-06-credit-risk).
+lab-06-credit-risk).
 
 
 
@@ -749,7 +749,7 @@ data and addressed them.
 
 For
 this project, we skip a more detailed exploratory data analysis like we
-did for chapter 2 (the car-price prediction project) and chapter 3
+did for lab 2 (the car-price prediction project) and lab 3
 (churn prediction project), but you're free to repeat the steps we
 covered there for this project as
 well.
@@ -990,7 +990,7 @@ df_val = df_val.fillna(0)
 
 
 To
-use categorical variables, we need to encode them. In chapter 3, we
+use categorical variables, we need to encode them. In lab 3, we
 applied the one-hot encoding technique for that. In one-hot encoding,
 each value is encoded as "1" if it's present ("hot") or "0" if it's
 absent ("cold"). To implement it, we used
@@ -1107,7 +1107,7 @@ X_val = dv.transform(dict_val)
 
 As
 a result, we have feature matrices for both train and validation
-datasets. Please refer to chapter 3 for more details on doing one-hot
+datasets. Please refer to lab 3 for more details on doing one-hot
 encoding with Scikit-learn.
 
 
@@ -1271,13 +1271,13 @@ under the ROC curve) for that.
 Credit
 risk scoring is a binary classification problem, and for cases like
 that, AUC is one of the best evaluation metrics. As you may recall from
-our discussion in chapter 4, AUC shows how well a model separates
+our discussion in lab 4, AUC shows how well a model separates
 positive examples from negative examples. It has a nice interpretation:
 it describes the probability that a randomly chosen positive example
 ("default") has a higher score than a randomly chosen negative example
 ("OK"). This is a relevant metric for the project: we want risky clients
 to have higher scores than nonrisky ones. For more details on AUC, refer
-to chapter
+to lab
 4.
 
 
@@ -1308,7 +1308,7 @@ from sklearn.metrics import roc_auc_score
 First,
 we evaluate the performance on the training set. Because we chose AUC as
 the evaluation metric, we need scores, not hard predictions. As we know
-from chapter 3, we need to use the [predict\_proba]
+from lab 3, we need to use the [predict\_proba]
 method
 for that:
 
@@ -1806,7 +1806,7 @@ observations in a group don't belong to the majority class.
 
 
 Scikit-learn uses more advanced split criteria such as entropy and the
-Gini impurity. We do not cover them in this book, but the idea is the
+Gini impurity. We do not cover them in this course, but the idea is the
 same: they measure the degree of impurity of the split.
 
 
@@ -1863,7 +1863,7 @@ calculate the misclassification rate for the split *T* = 4000 (figure
 In reality, instead of taking the simple average across both groups, we
 take a weighted average---we weight each group proportionally to its
 size. To simplify calculations, we use the simple average in this
-chapter.
+lab.
 
 
 
@@ -2149,9 +2149,7 @@ b)
 The number of features does not affect the speed of training.
 
 
-<div>
 
-</div>
 
 
 
@@ -2807,7 +2805,7 @@ important parameters we need to tune for random forest are the same:
 
 We
 can change other parameters, but we won't cover them in detail in this
-chapter. Refer to the official documentation for more information
+lab. Refer to the official documentation for more information
 ([https://scikit-learn.org/
 stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)).
 
@@ -3064,9 +3062,7 @@ for
 splitting
 
 
-<div>
 
-</div>
 
 
 
@@ -3128,7 +3124,7 @@ We
 have
 many good implementations of the gradient boosting model:
 [GradientBoostingClassifier]
-from Scikit-learn, XGBoost, LightGBM and CatBoost. In this chapter, we
+from Scikit-learn, XGBoost, LightGBM and CatBoost. In this lab, we
 use XGBoost (short for "Extreme Gradient Boosting"), which is the most
 popular implementation.
 
@@ -3646,7 +3642,7 @@ the number of trees grows, the score on the training set goes up (figure
 
 
 
-##### Figure 6.32 The effect of the number of trees on the AUC from train and validation sets. To see how to plot these values, check the notebook in the book's GitHub repository.
+##### Figure 6.32 The effect of the number of trees on the AUC from train and validation sets. To see how to plot these values, check the notebook in the course's GitHub repository.
 
 ![](./images/06-32.png)
 
@@ -4038,9 +4034,7 @@ c)
 The model will need fewer trees to reach its peak performance.
 
 
-<div>
 
-</div>
 
 
 Tuning
@@ -4515,9 +4509,7 @@ improves the previous one. In gradient boosting, all trees are trained
 independently.
 
 
-<div>
 
-</div>
 
 
 
@@ -4532,7 +4524,7 @@ independently.
 We've
 learned the basics about decision trees, random forest, and gradient
 boosting. We've learned a lot, but there's much more than we could fit
-in this chapter. You can explore this topic further by doing the
+in this lab. You can explore this topic further by doing the
 exercises.
 
 
@@ -4665,7 +4657,7 @@ possible performance on structured data (data in tabular format).
 
 
 In
-the next chapter, we look at neural nets: a different type of model,
+the next lab, we look at neural nets: a different type of model,
 which, in contrast, achieves best performance on unstructured data, such
 as images.
 

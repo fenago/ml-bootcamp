@@ -3,7 +3,7 @@ Lab 2: Machine learning for regression
 
 
 
-This chapter covers Creating a car-price prediction project with a linear regression model
+This lab covers Creating a car-price prediction project with a linear regression model
 Doing an initial exploratory data analysis with Jupyter notebooks
 Setting up a validation framework
 Implementing the linear regression model from scratch
@@ -12,7 +12,7 @@ Keeping the model under control with regularization
 Using the model to predict car prices
 
 
-In chapter 1, we talked about supervised machine learning, in which we
+In lab 1, we talked about supervised machine learning, in which we
 teach machine learning models how to identify patterns in data by giving
 them examples.
 
@@ -29,14 +29,14 @@ gets the features and combines them to output the price.
 
 This is an example of supervised learning: we have some information about the
 price of some cars, and we can use it to predict the price of others. In
-chapter 1, we also talked about different types of supervised learning:
+lab 1, we also talked about different types of supervised learning:
 regression and classification. When the target variable is numerical, we
 have a regression problem, and when the target variable is categorical,
 we have a classification problem.
 
 
 
-In this chapter, we create a regression model, starting with the simplest
+In this lab, we create a regression model, starting with the simplest
 one: linear regression. We implement the algorithms ourselves, which is
 simple enough to do in a few lines of code. At the same time, it's very
 illustrative, and it will teach you how to deal with NumPy arrays and
@@ -52,7 +52,7 @@ them.
 
 
 
-The problem we solve in this chapter is predicting the price of a car. Suppose that
+The problem we solve in this lab is predicting the price of a car. Suppose that
 we have a website where people can sell and buy used cars. When posting
 an ad on our website, sellers often struggle to come up with a
 meaningful price. We want to help our users with automatic price
@@ -120,7 +120,7 @@ about the dataset and the way it was collected at
 <https://www.kaggle.com/jshih7/car-price-prediction>.) Go there, open
 it, and click the download link. The other option is using the Kaggle
 command-line interface (CLI), which is a tool for programmatic access to
-all datasets available via Kaggle. For this chapter, we will use the
+all datasets available via Kaggle. For this lab, we will use the
 second option. We describe how to configure the Kaggle
 CLI
 in appendix A.
@@ -143,29 +143,29 @@ projects.
 
 
 
-In this chapter, as well as throughout the book, we will actively use
+In this lab, as well as throughout the course, we will actively use
 NumPy. We cover all necessary NumPy operations as we go along, but
 please refer to appendix C for a more in-depth introduction.
 
 
 
 The
-source code for this project is available in the book's repository in
-GitHub at <https://github.com/alexeygrigorev/mlbookcamp-code> in
-chapter-02-car-price.
+source code for this project is available in the course's repository in
+GitHub at <https://github.com/fenago/ml-bootcamp> in
+lab-02-car-price.
 
 
 
 As
 the first step, we will create a folder for this project. We can give it
-any name, such as chapter-02-car-price:
+any name, such as lab-02-car-price:
 
 
 
 
 ``` 
-mkdir chapter-02-car-price
-cd chapter-02-car-price
+mkdir lab-02-car-price
+cd lab-02-car-price
 ```
 
 
@@ -354,7 +354,7 @@ configuration. Please refer to appendix A for details on the setup.
 Now
 let's create a notebook for this project. Click New, then select Python
 3 in the Notebooks section. We can call it
-chapter-02-car-price-project---click the current title (Untitled), and
+lab-02-car-price-project---click the current title (Untitled), and
 replace it with the new one.
 
 
@@ -566,7 +566,7 @@ is exactly why we first select such columns in ❷.
 
 
 
-In this chapter and subsequent chapters, we cover relevant Pandas
+In this lab and subsequent labs, we cover relevant Pandas
 operations as we go along, but at a fairly high level. Please refer to
 appendix D for a more consistent and in-depth introduction to Pandas.
 
@@ -855,9 +855,7 @@ c)
 A lot of very similar values packed together within a short range
 
 
-<div>
 
-</div>
 
 
 ### 2.2.4 Checking for missing values
@@ -1402,7 +1400,7 @@ predict
 the price of a car, we need to use a machine learning model. To do this,
 we will use linear regression, which we will implement ourselves.
 Typically, we don't do this by hand; instead, we let a framework do this
-for us. In this chapter, however, we want to show that there is no magic
+for us. In this lab, however, we want to show that there is no magic
 inside these frameworks: it's just code. Linear regression is a perfect
 model because it's relatively simple and can be implemented with just a
 few lines of NumPy code.
@@ -1410,7 +1408,7 @@ few lines of NumPy code.
 
 
 First,
-let's understand how linear regression works. As we know from chapter 1,
+let's understand how linear regression works. As we know from lab 1,
 a supervised machine learning model has the form
 
 
@@ -1711,9 +1709,7 @@ describe the object (a car)---and *x~i~* is the logarithm of the price
 of this car.
 
 
-<div>
 
-</div>
 
 
 ![](./images/02_10-Equation_2-8.png)
@@ -2418,9 +2414,7 @@ c)
 A single number *y* with price predictions
 
 
-<div>
 
-</div>
 
 
 ### 2.3.2 Training linear regression model
@@ -2454,23 +2448,8 @@ the following formula:
 
 
 
-##### Note
 
-
-
-
-Covering the derivation of the normal equation is out of scope for this
-book. We give a bit of intuition of how it works in appendix C, but you
-should consult a machine learning textbook for a more in-depth
-introduction. *The Elements of Statistical Learning*, 2nd edition by
-Hastie, Tibshirani, and Friedman is a good
-start.
-
-
-
-
-This
-piece of math may appear scary or confusing, but it's quite easy to
+This piece of math may appear scary or confusing, but it's quite easy to
 translate to NumPy:
 
 
@@ -2538,8 +2517,7 @@ training.
 
 
 
-Let's
-implement it.
+Let's implement it.
 
 
 
@@ -3701,7 +3679,7 @@ This
 method of encoding categorical variables is called *one-hot
 encoding*.
 We will learn more about this way of encoding categorical variables in
-chapter 3. For now, let's choose the simplest way to do this encoding:
+lab 3. For now, let's choose the simplest way to do this encoding:
 looping over the possible values (2, 3, and 4) and, for each value,
 checking whether the value of the observation matches it.
 
@@ -4630,9 +4608,7 @@ answers are
 possible.
 
 
-<div>
 
-</div>
 
 
 ### 2.4.7 Using the model
@@ -4801,7 +4777,7 @@ can try the following things to make the model better:
 
 
 -   [*Write
-    a function for binary encoding.* In this chapter we implemented the
+    a function for binary encoding.* In this lab we implemented the
     category encoding manually: we looked at the top five values, wrote
     them in a list, and then looped over the list to create binary
     features. Doing it this way is cumbersome, which is why it's a good
@@ -4895,7 +4871,7 @@ Summary
 
 
 In
-chapter 3, we will learn how to do classification with machine learning,
+lab 3, we will learn how to do classification with machine learning,
 using logistic regression to predict customer
 churn.
 
